@@ -9,7 +9,7 @@ deviation of the data collected.
 """
 
 # Max and minimum seconds between drops that will be considered for further use
-max_sec_limit = 3
+max_sec_limit = 1
 min_sec_limit = -1
 
 df = pd.DataFrame(columns=['Raw time', 'Period', 'Period + 1', 'Flow rate', 'STD Period'])
@@ -20,6 +20,7 @@ df = pd.DataFrame(columns=['Raw time', 'Period', 'Period + 1', 'Flow rate', 'STD
 folders = glob.glob("Main_data_par/*")
 
 for i in folders:
+    print(i)
     files = glob.glob(i + "/*.csv")
     # Read each of the .csv files in the folder, they contain 1000 datapoints of the time (μs) when a drop was detected.
     # A file was created every 1000 datapoints to avoid the measuring device timing out during prolonged sessions.
